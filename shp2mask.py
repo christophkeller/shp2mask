@@ -22,8 +22,7 @@ def main(args):
     '''
     Routine to convert shapefile boundaries into netCDF mask files. Requires as input the shapefile and a netCDF template file with the target resolution. 
     Example:
-    module load python/GEOSpyD/Ana2019.03_py3.7
-    python shp2mask.py -i '/discover/nobackup/cakelle2/GEOS_CF/Apps/cftools/cfexposure/inputs/geometries/tl_2019_us_state/tl_2019_us_state.shp' -r 6 -t '/discover/nobackup/cakelle2/GEOS_CF/Apps/cftools/cfexposure/inputs/templates/mask_template_merra2.nc' -o 'mask_us_states.nc4'
+    python shp2mask.py -i 'example/tl_2019_us_state/tl_2019_us_state.shp' -r 6 -t 'example/mask_template_merra2.nc' -o 'mask_us_states.nc4'
     '''
     log = logging.getLogger(__name__)
     # read mask template
