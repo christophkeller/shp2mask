@@ -22,7 +22,7 @@ def main(args):
     '''
     Routine to convert shapefile boundaries into netCDF mask files. Requires as input the shapefile and a netCDF template file with the target resolution. 
     Example:
-    python shp2mask.py -i 'example/tl_2019_us_state/tl_2019_us_state.shp' -r 6 -t 'example/mask_template_merra2.nc' -o 'mask_us_states.nc4'
+    python shp2mask.py -i 'inputs/example/tl_2019_us_state/tl_2019_us_state.shp' -r 6 -t 'inputs/example/mask_template_merra2.nc' -o 'mask_us_states.nc4'
     '''
     log = logging.getLogger(__name__)
     # read mask template
@@ -146,7 +146,7 @@ def _plot_shape(args,shape,iname):
 
 
 def _get_filter(args):
-    '''Read simple ascii file to determine zip codes that should be included in mask'''
+    '''Read simple ascii file to determine codes that should be included in mask'''
     log = logging.getLogger(__name__)
     if args.filter is None:
         return None
@@ -169,9 +169,9 @@ def rounddown(x):
 
 def parse_args():
     p = argparse.ArgumentParser(description='Undef certain variables')
-    p.add_argument('-i', '--input-file',type=str,help='input file',default='inputs/geometries/70districts_sanitaires.shp')
-    p.add_argument('-t', '--template-file',type=str,help='template file',default="inputs/templates/mask_template_merra2.nc")
-    p.add_argument('-o', '--output-file',type=str,help='output file',default="outputs/masks/mask.nc4")
+    p.add_argument('-i', '--input-file',type=str,help='input file',default='inputs/example/tl_2019_us_state/tl_2019_us_state.shp')
+    p.add_argument('-t', '--template-file',type=str,help='template file',default="inputs/example/mask_template_merra2.nc")
+    p.add_argument('-o', '--output-file',type=str,help='output file',default="test_mask.nc4")
     p.add_argument('-f', '--figure',type=str,help='figure file',default=None)
     p.add_argument('-r', '--irecord',type=int,help='data record element to use for name',default=-999)
     p.add_argument('-r1', '--record1',type=int,help='first record to use',default=-999)
